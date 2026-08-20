@@ -1,0 +1,4 @@
+timestamp,vehicle_id,route_id,warehouse,cargo_weight_kg,max_capacity_kg,fuel_consumed_liters,idle_time_hours
+2026-07-01 08:00:00,TRK-001,Rute-A,WH-Jakarta,800,1200,18.5,1.2
+2026-07-01 09:00:00,TRK-002,Rute-B,WH-Tangerang,900,1200,19.0,0.8
+2026-07-01 10:00:00,TRK-003,Rute-C,WH-Bekasi,750,1200,17.8,1.5

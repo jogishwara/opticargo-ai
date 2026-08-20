@@ -1,0 +1,3 @@
+timestamp,vehicle_id,route_id,warehouse,cargo_weight_kg,max_capacity_kg,fuel_consumed_liters,idle_time_hours
+bad-date,XX-1,zzz,random,abc,0,,
+nope,???,none,blah,,,,

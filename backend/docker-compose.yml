@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: opticargo_backend
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://opticargo_user:opticargo_pass@db:5432/opticargo_db
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=opticargo_secret_key_change_in_production
+      - ALGORITHM=HS256
+    depends_on:
+      - db
+      - redis
+
+  db:
+    image: postgres:15-alpine
+    container_name: opticargo_postgres
+    environment:
+      - POSTGRES_USER=opticargo_user
+      - POSTGRES_PASSWORD=opticargo_pass
+      - POSTGRES_DB=opticargo_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: opticargo_redis
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgres_data:
